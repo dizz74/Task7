@@ -7,16 +7,28 @@ namespace Part1
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Введите 3 стороны:");
+            Console.WriteLine("Введите 3 стороны 1 треугольника:");
             int a = Convert.ToInt32(Console.ReadLine());
             int b = Convert.ToInt32(Console.ReadLine());
             int c = Convert.ToInt32(Console.ReadLine());
+            double S1 = SqrBy3(a, b, c);
 
-            double S = SqrBy3(a, b, c);
-            
-            if (S == 0 || Double.IsNaN(S)) Console.WriteLine("Неверные исх.данные");
+
+            Console.WriteLine("Введите 3 стороны 2 треугольника:");
+            a = Convert.ToInt32(Console.ReadLine());
+            b = Convert.ToInt32(Console.ReadLine());
+            c = Convert.ToInt32(Console.ReadLine());
+            double S2 = SqrBy3(a, b, c);
+
+
+
+            if (S1 == 0 || Double.IsNaN(S1) || S2 == 0 || Double.IsNaN(S2)) Console.WriteLine("Неверные исх.данные");
             else
-            Console.WriteLine("Площадь:{0:f4}", S);
+            {
+                if (S1 > S2) Console.WriteLine("Площадь первого больше");
+                else if (S2 > S1) Console.WriteLine("Площадь второго больше");
+                else Console.WriteLine("Одинаковые по площади");
+            }
             Console.ReadKey();
         }
 
